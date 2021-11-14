@@ -16,7 +16,7 @@ void Menus::execFile(string nomefich) {
             istringstream iss(str);
             if (iss >> nome && iss >> comando && iss >> tipo && iss >> linha && iss >> coluna) {
                 if (comando == "cons" && tipo == "minaf" && linha > 0 && coluna > 0) {
-                    mf.Construir();
+                    mf.Construir(linha, coluna);
                     cout << "Mina Ferro Construida" << endl;
                     cout << endl;
                 }
@@ -34,7 +34,8 @@ void Menus::execFile(string nomefich) {
 }
 
 int Menus::menu() {
-    string comando;
+    string comando, tipo;
+    int linha, coluna;
     ostringstream oss;
     Ilha i;
     MinaFerro mf(0);
@@ -49,13 +50,23 @@ int Menus::menu() {
         {
             if (comando == "cons")      // constroi edificio
             {
-                string tipo;
-                int linha, coluna;
                 if (iss >> tipo) {
-                    if (tipo == "minaf" /*&& linha > 0 && coluna > 0*/) {
-                        mf.Construir();
-                        cout << "Mina Ferro Construida" << endl;
-                        cout << endl;
+                    if (tipo == "minaf") {
+                        if (iss >> linha) {
+                            if (linha > 0 ) {
+                                if (iss >> coluna) {
+                                    if (coluna > 0) {
+                                        mf.Construir(linha, coluna);
+                                        cout << "Mina Ferro Construida" << endl;
+                                        cout << endl;
+                                    }
+                                    else
+                                        cout << "\nComando invalido!!";
+                                }
+                            }
+                            else
+                                cout << "\nComando invalido!!";
+                        }
                     }
                     else
                         cout << "\nComando invalido!!";

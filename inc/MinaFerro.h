@@ -3,13 +3,15 @@
 
 #include "utils.h"
 #include "Edificio.h"
+#include "Zona.h"
 
 class MinaFerro : public Edificio {
 
 public:
     MinaFerro(int q) : Edificio(q) {}
 
-    int Construir();
+    int Construir(int x, int y);
+
     string getAsString() const;
 };
 

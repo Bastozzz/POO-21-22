@@ -14,9 +14,9 @@ private:
 
 public:
     Trabalhador(int quant = 0) : quantidade(quant) {}
-    //Trabalhador(string id, int quant = 0, int price, double prob) : ID(id), quantidade(quant), preco(price), probabilidade(prob) {}
+    Trabalhador(string id, int price = 0, double prob = 0.0) : ID(id), preco(price), probabilidade(prob) {}
 
-    void setID(string id, Trabalhador, int dia);
+    void setID(string id, int dia);
     string getID() const ;
 
     void setQuantidade(int q);

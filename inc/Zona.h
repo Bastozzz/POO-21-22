@@ -4,7 +4,9 @@
 #include "utils.h"
 
 class Zona {
-    int posX, posY;
+protected:
+    //int posX, posY;
+    vector<int, int> = {posX, posY};
 
 public:
     Zona(int px, int py) : posX(px), posY(py) {}

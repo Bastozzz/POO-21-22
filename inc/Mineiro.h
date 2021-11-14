@@ -8,7 +8,7 @@ class Mineiro : public Trabalhador {
 
 public:
     Mineiro(int quant) : Trabalhador(quant) {}
-    //Mineiro(string id, int quant, int price, double prob) : Trabalhador(id, quant, price, prob) {}
+    Mineiro(string id, int price, double prob) : Trabalhador(id, price, prob) {}
 
     int Contratar();
     void Desistir(int dias);

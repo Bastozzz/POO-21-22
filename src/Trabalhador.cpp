@@ -1,6 +1,6 @@
 #include "../inc/Trabalhador.h"
 
-void Trabalhador::setID(string id, Trabalhador, int dia) {
+void Trabalhador::setID(string id, int dia) {
     int numero;
     id += to_string(numero) += ".";
     id += to_string(dia);

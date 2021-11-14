@@ -27,3 +27,29 @@ string Ilha::getAsString() const {
     return oss.str();
 }
 
+void Ilha::mostraIlha(){
+    int n = 1;
+    for(int i = 0; i < lzonas; i++)
+        cout << "____";
+    cout << endl;
+    for(int i = 0; i < lzonas; i++){
+        cout << "|";
+        for(int j = 0; j < czonas; j++){
+            if(n < 10)
+            cout << n << "    ";
+
+            else if(n < 100)
+                cout << n << "   ";
+            n++;
+        }
+        cout << "|";
+        cout << endl;
+    }
+    for(int i = 0; i < lzonas; i++)
+        cout << "====";
+    cout << endl;
+}
+
+void Ilha::criaIlha(Ilha) {
+
+};

@@ -14,13 +14,17 @@ class Ilha {
 
 public:
     Ilha() {}
-    Ilha(int riq, int lzon, int czon, int nd, int nzon[5]) : riqueza(riq), lzonas(lzon), czonas(czon), dia(nd){}
+    Ilha(int riq, int lzon, int czon, int nd) : riqueza(riq), lzonas(lzon), czonas(czon), dia(nd){}
 
     int getriqueza();
     void setriqueza(double dinhinicial);
 
     int getDia();
     void setDia(double d);
+
+    void mostraIlha();
+
+    void criaIlha(Ilha);
 
     string getAsString() const;
 

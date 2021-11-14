@@ -5,8 +5,8 @@
 
 class Zona {
 protected:
-    //int posX, posY;
-    vector<int, int> = {posX, posY};
+    int posX, posY;
+    //vector<int, int> = {posX, posY};
 
 public:
     Zona(int px, int py) : posX(px), posY(py) {}
@@ -18,5 +18,6 @@ public:
     void setPosY(int pos);
 
 };
+
 
 #endif //UNTITLED_ZONA_H

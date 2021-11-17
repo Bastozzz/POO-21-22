@@ -1,8 +1,8 @@
 #include "../inc/Menus.h"
 #include "../inc/MinaFerro.h"
-#include "../inc/Mineiro.h"
 #include "../inc/Zona.h"
 #include "../inc/Ilha.h"
+#include "../inc/Trabalhador.h"
 
 void Menus::execFile(string nomefich) {
     MinaFerro mf(0);
@@ -74,6 +74,7 @@ int Menus::menu() {
             cout << "Numero invalido de colunas.\n";
     }
 
+    Mineiro("hey", 3, 3);
     Ilha i (30,  linha, coluna, 1);
     i.mostraIlha();
     i.criaIlha(i);

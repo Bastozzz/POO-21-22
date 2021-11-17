@@ -7,6 +7,8 @@ class Zona {
 protected:
     int posX, posY;
     //vector<int, int> = {posX, posY};
+    string tipo;
+    string edificio;
 
 public:
     Zona(int px, int py) : posX(px), posY(py) {}

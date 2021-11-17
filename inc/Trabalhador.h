@@ -3,6 +3,7 @@
 
 #include "utils.h"
 
+//Classe principal
 class Trabalhador {
 protected:
     int quantidade;
@@ -20,13 +21,32 @@ public:
     string getID() const ;
 
     void setQuantidade(int q);
-    int getQuantidade() const ;
+    int getQuantidade() const;
 
     void setPreco(int price);
     int getPreco() const;
 
     void setProbabilidade(int prob);
     double getProbabilidade() const;
+
+};
+
+/*
+ *
+ *
+ */
+
+//Sublacsse de mineiro
+class Mineiro : public Trabalhador {
+
+public:
+    Mineiro(int quant) : Trabalhador(quant) {}
+    Mineiro(string id, int price, double prob) : Trabalhador(id, price, prob) {}
+
+    int Contratar();
+    void Desistir(int dias);
+
+    string getAsString() const;
 
 };
 

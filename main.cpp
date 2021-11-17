@@ -1,5 +1,5 @@
-#include "./inc/utils.h"
-#include "./inc/Menus.h"
+#include "inc/utils.h"
+#include "inc/Menus.h"
 
 void inicio() {
     cout << "Pedro Bastos & Rafaela Santos\n";

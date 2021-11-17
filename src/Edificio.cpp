@@ -1,10 +1,30 @@
 #include "../inc/Edificio.h"
+#include "../inc/Ilha.h"
 
-void Edificio::setQuantidade(int q) {
-    quantidade = q;
+string Edificio::getNome() {
+    return nome;
+}
+
+void Edificio::setNivel(int n) {
+    nivel = n;
 };
 
-int Edificio::getQuantidade() const {
-    return quantidade;
+int Edificio::getNivel() const {
+    return nivel;
 };
 
+/*
+ *
+ *
+ *
+ */
+
+int MinaFerro::construir(int x, int y) {
+    nome = "mnF";
+};
+
+string MinaFerro::getAsString() const {
+    ostringstream oss;
+    oss << "Quantidade de Minas de Ferro: " <<  nivel << endl;
+    return oss.str();
+};

@@ -1,12 +1,9 @@
 #include "../inc/Menus.h"
-#include "../inc/MinaFerro.h"
-#include "../inc/Zona.h"
-#include "../inc/Ilha.h"
+#include "../inc/Edificio.h"
 #include "../inc/Trabalhador.h"
+#include "../inc/Ilha.h"
 
 void Menus::execFile(string nomefich) {
-    MinaFerro mf(0);
-    Mineiro m(0);
     ifstream ficheiro(nomefich);
     if (ficheiro) {
         string nome, tipo, comando;
@@ -20,7 +17,6 @@ void Menus::execFile(string nomefich) {
                         if (tipo == "minaf") {
                             if (linha > 0 ) {
                                 if (coluna > 0) {
-                                    mf.Construir(linha, coluna);
                                     cout << "Mina Ferro Construida" << endl;
                                     cout << endl;
                                 }
@@ -39,7 +35,6 @@ void Menus::execFile(string nomefich) {
                     string tipo;
                     if (iss >> tipo) {
                         if (tipo == "miner") {
-                            m.Contratar();
                             cout << "Mineiro Contratado" << endl;
                             cout << endl;
                         }
@@ -76,10 +71,10 @@ int Menus::menu() {
 
     Mineiro("hey", 3, 3);
     Ilha i (30,  linha, coluna, 1);
+    i.criaIlha();
     i.mostraIlha();
-    i.criaIlha(i);
 
-    MinaFerro mf(0);
+    MinaFerro mf;
     Mineiro m(0);
     //Zona z(linha, coluna);
 
@@ -99,7 +94,8 @@ int Menus::menu() {
                     if (tipo == "minaf") {
                         if (linha > 0 ) {
                             if (coluna > 0) {
-                                mf.Construir(linha, coluna);
+                                i.construir("mnF", linha, coluna);
+
                                 cout << "Mina Ferro Construida" << endl;
                                 cout << endl;
                             }
@@ -186,21 +182,10 @@ int Menus::menu() {
                 }
             }
             else if (comando == "list") {           // Ver dados da ilha
-                if (iss >> linha && iss >> coluna) {
-                    if (linha > 0 ) {
-                        if (coluna > 0) {
-                            cout << "\n-----A mostrar lista:-----" << endl;
-                            // TODO Mostrar as informações pela posição
-                            cout << mf.getAsString();
-                            cout << m.getAsString();
-                            cout << endl;
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
-                }
+
+                i.mostraIlha();
+
+
             }
             else if (comando == "vende") {          // Vende edificios
                 if (iss >> linha && iss >> coluna) {

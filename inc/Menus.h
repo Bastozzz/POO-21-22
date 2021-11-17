@@ -2,6 +2,7 @@
 #define UNTITLED_MENU_H
 
 #include "utils.h"
+#include "Edificio.h"
 
 class Menus {
 

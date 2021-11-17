@@ -5,16 +5,34 @@
 
 class Edificio {
 protected:
-    int quantidade = 0;
+    string nome;
+    int nivel;
 
 public:
-    Edificio(int q = 0) : quantidade(q) {}
+    Edificio(){};
+    Edificio(string nom, int n) : nome(nom), nivel(n) {};
 
-    void setQuantidade(int q);
-    int getQuantidade() const;
+    string getNome();
+
+    void setNivel(int n);
+    int getNivel() const;
 
 };
 
+/*
+ *
+ *
+ *
+ */
 
+class MinaFerro : public Edificio {
+
+public:
+    MinaFerro(string nom = "mnF", int n = 1) : Edificio(nom, n)  {}
+
+    int construir(int x, int y);
+
+    string getAsString() const;
+};
 
 #endif //UNTITLED_EDIFICIO_H

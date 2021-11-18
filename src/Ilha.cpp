@@ -89,6 +89,10 @@ void Ilha::mostraIlha(){
     for(int i = 0; i < lZonas; i++)
         cout << "====";
     cout << endl;
+
+    for (auto i = Trabalhadores.begin(); i != Trabalhadores.end(); ++i){
+            cout << i->getID() << " ";
+    }
 };
 
 
@@ -120,16 +124,29 @@ void Ilha::retornaEdificio(int p) {
 
 void Ilha::construir(string edifi, int l, int c){
 
-    int posicao = (l * cZonas) + c;
+    int posicao = ((l-1) * cZonas) + c;
     int times = 0;
 
     for (auto i = Zonas.begin(); i != Zonas.end(); ++i){
         times++;
         if(times == posicao){
             i->construirEdificio(edifi);
-            cout << i->getEdif() << " " << endl;
         }
     }
 };
 
+void Ilha::contratar(string nome) {
+    if(nome == "miner"){
+        Trabalhador t;
+        string temp;
+        t.setID(tmpCount, getDia());
+        Trabalhadores.push_back(t);
 
+        tmpCount++;
+    }
+
+}
+
+int Ilha::getCount(){
+    return tmpCount;
+}

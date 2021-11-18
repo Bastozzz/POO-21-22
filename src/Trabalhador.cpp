@@ -1,10 +1,8 @@
 #include "../inc/Trabalhador.h"
 
-void Trabalhador::setID(string id, int dia) {
-    int numero;
-    id += to_string(numero) += ".";
-    id += to_string(dia);
-    numero++;
+void Trabalhador::setID(int i, int dia) {
+    ID += to_string(i) += ".";
+    ID += to_string(dia);
 };
 
 string Trabalhador::getID() const {
@@ -41,17 +39,6 @@ double Trabalhador::getProbabilidade() const {
  *
  *
  */
-
-int Mineiro::Contratar() {
-    return ++quantidade;
-}
-
-void Mineiro::Desistir(int dias) {
-    if(dias >= 2) {
-        setProbabilidade(0.10);
-        setQuantidade(-1);
-    }
-}
 
 string Mineiro::getAsString() const {
     ostringstream oss;

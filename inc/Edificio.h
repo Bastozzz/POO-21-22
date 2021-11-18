@@ -30,8 +30,6 @@ class MinaFerro : public Edificio {
 public:
     MinaFerro(string nom = "mnF", int n = 1) : Edificio(nom, n)  {}
 
-    int construir(int x, int y);
-
     string getAsString() const;
 };
 

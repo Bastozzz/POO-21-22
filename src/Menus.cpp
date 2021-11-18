@@ -173,7 +173,7 @@ int Menus::menu() {
                 string tipo;
                 if (iss >> tipo) {
                     if (tipo == "miner") {
-                        m.Contratar();
+                        i.contratar(tipo);
                         cout << "Mineiro Contratado" << endl;
                         cout << endl;
                     }

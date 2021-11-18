@@ -17,7 +17,7 @@ public:
     Trabalhador(int quant = 0) : quantidade(quant) {}
     Trabalhador(string id, int price = 0, double prob = 0.0) : ID(id), preco(price), probabilidade(prob) {}
 
-    void setID(string id, int dia);
+    void setID(int i, int dia);
     string getID() const ;
 
     void setQuantidade(int q);
@@ -42,9 +42,6 @@ class Mineiro : public Trabalhador {
 public:
     Mineiro(int quant) : Trabalhador(quant) {}
     Mineiro(string id, int price, double prob) : Trabalhador(id, price, prob) {}
-
-    int Contratar();
-    void Desistir(int dias);
 
     string getAsString() const;
 

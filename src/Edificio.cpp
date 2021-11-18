@@ -12,16 +12,12 @@ void Edificio::setNivel(int n) {
 int Edificio::getNivel() const {
     return nivel;
 };
- 
+
 /*
  *
  *
  *
  */
-
-int MinaFerro::construir(int x, int y) {
-    nome = "mnF";
-};
 
 string MinaFerro::getAsString() const {
     ostringstream oss;

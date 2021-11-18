@@ -12,7 +12,7 @@ void Edificio::setNivel(int n) {
 int Edificio::getNivel() const {
     return nivel;
 };
-
+ 
 /*
  *
  *

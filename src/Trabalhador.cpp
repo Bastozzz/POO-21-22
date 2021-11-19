@@ -9,12 +9,12 @@ string Trabalhador::getID() const {
     return ID;
 };
 
-void Trabalhador::setQuantidade(int q) {
-    quantidade = q;
+void Trabalhador::setTipo(string t) {
+    tipo = t;
 };
 
-int Trabalhador::getQuantidade() const {
-    return quantidade;
+string Trabalhador::getTipo() const {
+    return tipo;
 };
 
 void Trabalhador::setPreco(int price) {
@@ -42,7 +42,6 @@ double Trabalhador::getProbabilidade() const {
 
 string Mineiro::getAsString() const {
     ostringstream oss;
-    oss << "Quantidade de Mineiro: " <<  quantidade << endl;
     return oss.str();
 }
 

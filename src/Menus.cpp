@@ -75,7 +75,7 @@ int Menus::menu() {
     i.mostraIlha();
 
     MinaFerro mf;
-    Mineiro m(0);
+    Mineiro m;
     //Zona z(linha, coluna);
 
     do {

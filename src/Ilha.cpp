@@ -88,11 +88,12 @@ void Ilha::mostraIlha(){
     }
     for(int i = 0; i < lZonas; i++)
         cout << "====";
-    cout << endl;
-
+    cout << endl << endl;
+    cout << "Trabalhadores contratados:" << endl;
     for (auto i = Trabalhadores.begin(); i != Trabalhadores.end(); ++i){
-            cout << i->getID() << " ";
+            cout << i->getTipo() << " ";
     }
+    cout << endl << endl;
 };
 
 
@@ -140,6 +141,7 @@ void Ilha::contratar(string nome) {
         Trabalhador t;
         string temp;
         t.setID(tmpCount, getDia());
+        t.setTipo(nome);
         Trabalhadores.push_back(t);
 
         tmpCount++;

@@ -5,23 +5,23 @@
 
 //Classe principal
 class Trabalhador {
-protected:
-    int quantidade;
 
-private:
+protected:
     string ID;
+    string tipo;
     int preco;
     double probabilidade;
 
+
 public:
-    Trabalhador(int quant = 0) : quantidade(quant) {}
+    Trabalhador(){}
     Trabalhador(string id, int price = 0, double prob = 0.0) : ID(id), preco(price), probabilidade(prob) {}
 
     void setID(int i, int dia);
-    string getID() const ;
+    string getID() const;
 
-    void setQuantidade(int q);
-    int getQuantidade() const;
+    void setTipo(string t);
+    string getTipo() const;
 
     void setPreco(int price);
     int getPreco() const;
@@ -40,7 +40,7 @@ public:
 class Mineiro : public Trabalhador {
 
 public:
-    Mineiro(int quant) : Trabalhador(quant) {}
+    Mineiro(){}
     Mineiro(string id, int price, double prob) : Trabalhador(id, price, prob) {}
 
     string getAsString() const;

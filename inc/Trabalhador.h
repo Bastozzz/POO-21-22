@@ -7,27 +7,28 @@
 class Trabalhador {
 
 protected:
-    string ID;
-    string tipo;
-    int preco;
-    double probabilidade;
+    string      ID;
+    string      tipo;
+    int         preco;
+    double      probabilidade;
 
 
 public:
     Trabalhador(){}
     Trabalhador(string id, int price = 0, double prob = 0.0) : ID(id), preco(price), probabilidade(prob) {}
 
-    void setID(int i, int dia);
-    string getID() const;
+    void        setID(int i, int dia);
+    string      getID() const;
 
-    void setTipo(string t);
-    string getTipo() const;
+    void        setTipo(string t);
+    string      getTipo() const;
 
-    void setPreco(int price);
-    int getPreco() const;
 
-    void setProbabilidade(int prob);
-    double getProbabilidade() const;
+    //Por implementar na meta 2
+    void        setPreco(int price);
+    int         getPreco() const;
+    void        setProbabilidade(int prob);
+    double      getProbabilidade() const;
 
 };
 

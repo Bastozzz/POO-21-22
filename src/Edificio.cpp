@@ -5,13 +5,6 @@ string Edificio::getNome() {
     return nome;
 }
 
-void Edificio::setNivel(int n) {
-    nivel = n;
-};
-
-int Edificio::getNivel() const {
-    return nivel;
-};
 
 /*
  *

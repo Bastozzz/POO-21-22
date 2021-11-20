@@ -3,30 +3,6 @@
 #include "../inc/Trabalhador.h"
 #include "../inc/utils.h"
 
-int Ilha::getriqueza() {
-    return riqueza;
-};
-
-void Ilha::setriqueza(double dinhinicial) {
-    riqueza = dinhinicial;
-};
-
-int Ilha::getDia() {
-    return dia;
-};
-
-void Ilha::setDia(double d) {
-    dia = d;
-};
-
-string Ilha::getAsString() const {
-    ostringstream oss;
-    Edificio e;
-    Trabalhador t;
-    return oss.str();
-};
-
-
 void Ilha::criaIlha() {
 
     string verifica[lZonas][cZonas];
@@ -152,3 +128,14 @@ void Ilha::contratar(string nome) {
 int Ilha::getCount(){
     return tmpCount;
 }
+
+int Ilha::getDia() {
+    return dia;
+};
+
+string Ilha::getAsString() const {
+    ostringstream oss;
+    Edificio e;
+    Trabalhador t;
+    return oss.str();
+};

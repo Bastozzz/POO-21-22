@@ -8,8 +8,9 @@ class Menus {
 
 public:
     Menus() {}
-    int menu();
-    void execFile(string nomefich);
+
+    int     menu();
+    void    execFile(string nomefich);
 };
 
 #endif //UNTITLED_MENU_H

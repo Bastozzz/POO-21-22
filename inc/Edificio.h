@@ -5,8 +5,8 @@
 
 class Edificio {
 protected:
-    string nome;
-    int nivel;
+    string  nome;
+    int     nivel;
 
 public:
     Edificio(){};
@@ -14,8 +14,10 @@ public:
 
     string getNome();
 
-    void setNivel(int n);
-    int getNivel() const;
+
+    //Por implementar na meta 2
+    void   setNivel(int n);
+    int    getNivel() const;
 
 };
 
@@ -30,7 +32,7 @@ class MinaFerro : public Edificio {
 public:
     MinaFerro(string nom = "mnF", int n = 1) : Edificio(nom, n)  {}
 
-    string getAsString() const;
+    string  getAsString() const;
 };
 
 #endif //UNTITLED_EDIFICIO_H

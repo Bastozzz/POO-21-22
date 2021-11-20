@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int randTP(int n);
+int     randTP(int n);
 
 
 #endif //UNTITLED_UTILS_H

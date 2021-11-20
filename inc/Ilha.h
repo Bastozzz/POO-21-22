@@ -9,14 +9,14 @@ class Trabalhador;
 
 class Ilha {
 
-    int             riqueza;
-    int             lZonas;
-    int             cZonas;
-    int             dia;
-    int             tmpCount;
+    int         riqueza;
+    int         lZonas;
+    int         cZonas;
+    int         dia;
+    int         tmpCount;
 
     //Em que [0] é o número de desertos, [1] é o de florestas, [2] é o de montanha, [3] é o de pantano, e o [4] é o de pastagens
-    int             nZonas[5];
+    int         nZonas[5];
 
 
 public:
@@ -26,25 +26,25 @@ public:
     vector<Zona>             Zonas;
     vector<Trabalhador>      Trabalhadores;
 
-    int getriqueza();
-    void setriqueza(double dinhinicial);
+    void        criaIlha();
+    void        mostraIlha();
 
-    int getDia();
-    void setDia(double d);
+    void        retornaZona(int i);
+    void        retornaEdificio(int i);
 
-    int getCount();
+    void        construir(string edifi, int l, int c);
+    void        contratar(string nome);
 
-    void mostraIlha();
-    void retornaZona(int i);
+    int         getDia();
+    int         getCount();
 
-    void retornaEdificio(int i);
+    string      getAsString() const;
 
-    void criaIlha();
 
-    string getAsString() const;
-
-    void construir(string edifi, int l, int c);
-    void contratar(string nome);
+    //Por implementar na meta 2
+    int         getriqueza();
+    void        setriqueza(double dinhinicial);
+    void        setDia(double d);
 
 };
 

@@ -20,18 +20,18 @@ protected:
 public:
     Zona(string t, int px, int py) : tipo(t), posX(px), posY(py) {}
 
-    int getPosX();
-    void setPosX(int pos);
+    void        construirEdificio(string nome);
 
-    int getPosY();
-    void setPosY(int pos);
+    string      getTipo();
+    string      getEdif();
 
-    string getTipo();
-    void setTipo();
 
-    string getEdif();
-
-    void construirEdificio(string nome);
+    //Por implementar na meta 2
+    int         getPosX();
+    void        setPosX(int pos);
+    int         getPosY();
+    void        setPosY(int pos);
+    void        setTipo();
 
 };
 

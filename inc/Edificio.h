@@ -28,7 +28,6 @@ public:
  */
 
 class MinaFerro : public Edificio {
-
 public:
     MinaFerro(string nom = "mnF", int n = 1) : Edificio(nom, n)  {}
 

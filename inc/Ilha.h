@@ -29,12 +29,14 @@ public:
     void        criaIlha();
     void        mostraIlha();
 
-    void        retornaZona(int i);
-    void        retornaEdificio(int i);
+    void        retornaZona(int p);
+    void        retornaEdificio(int p);
+    void        retornaTrabalhadores(int p);
 
     void        construir(string edifi, int l, int c);
     void        contratar(string nome);
 
+    int         getNTrabalhadores();
     int         getDia();
     int         getCount();
 

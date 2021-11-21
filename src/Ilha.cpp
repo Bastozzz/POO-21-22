@@ -4,6 +4,7 @@
 #include "../inc/utils.h"
 
 void Ilha::criaIlha() {
+    srand(time(NULL));
 
     string verifica[lZonas][cZonas];
     for(int i = 0; i < lZonas; i++)
@@ -42,34 +43,50 @@ void Ilha::criaIlha() {
 void Ilha::mostraIlha(){
     int n = 1;
     for(int i = 0; i < lZonas; i++)
-        cout << "____";
+        cout << "_____";
     cout << endl;
     for(int i = 0; i < lZonas; i++){
         cout << "|";
         for(int j = 0; j < cZonas; j++){
             retornaZona(n);
+            cout << "|";
             n++;
         }
 
         n -= cZonas;
-
-        cout << "|" << endl << "|";
+        cout << endl << "|";
 
         for(int j = 0; j < cZonas; j++){
             retornaEdificio(n);
+            cout << "|";
             n++;
         }
-        cout << "|";
+
+        n -= cZonas;
+        cout << endl << "|";
+
+        for(int j = 0; j < cZonas; j++){
+            retornaTrabalhadores(n);
+            cout << "|";
+            n++;
+        }
+
+        n -= cZonas;
+        cout << endl << "|";
+
+        for(int j = 0; j < cZonas; j++){
+            cout << Zonas[j + (cZonas * i)].getNTrab() << "   ";
+            cout << "|";
+            n++;
+        }
+
+        cout << endl;
+        for(int i = 0; i < lZonas; i++)
+            cout << "_____";
         cout << endl;
     }
-    for(int i = 0; i < lZonas; i++)
-        cout << "====";
-    cout << endl << endl;
-    cout << "Trabalhadores contratados:" << endl;
-    for (auto i = Trabalhadores.begin(); i != Trabalhadores.end(); ++i){
-            cout << i->getTipo() << " ";
-    }
-    cout << endl << endl;
+
+    cout << endl;
 };
 
 
@@ -98,6 +115,16 @@ void Ilha::retornaEdificio(int p) {
     }
 };
 
+void Ilha::retornaTrabalhadores(int p) {
+    int times = 0;
+    for (auto i = Zonas.begin(); i != Zonas.end(); ++i){
+        times++;
+        if(times == p){
+            i->getTrab();
+        }
+    }
+};
+
 
 void Ilha::construir(string edifi, int l, int c){
 
@@ -113,16 +140,31 @@ void Ilha::construir(string edifi, int l, int c){
 };
 
 void Ilha::contratar(string nome) {
+
     if(nome == "miner"){
-        Trabalhador t;
+        Mineiro t;
         string temp;
         t.setID(tmpCount, getDia());
         t.setTipo(nome);
-        Trabalhadores.push_back(t);
 
         tmpCount++;
-    }
 
+        while(1){
+            int times = 0;
+            int flag = 0;
+            int temp = randTP(lZonas * cZonas);
+
+            for (auto i = Zonas.begin(); i != Zonas.end(); ++i){
+                times++;
+                if(i->getTipo() == "pas" && times == temp){
+                    i->colocarTrabalhador("M", t);
+                    flag = 1;
+                    break;
+                }
+            }
+            if(flag == 1) break;
+        }
+    }
 }
 
 int Ilha::getCount(){
@@ -138,4 +180,4 @@ string Ilha::getAsString() const {
     Edificio e;
     Trabalhador t;
     return oss.str();
-};
+}

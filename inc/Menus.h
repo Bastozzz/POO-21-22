@@ -3,6 +3,7 @@
 
 #include "utils.h"
 #include "Edificio.h"
+#include "Ilha.h"
 
 class Menus {
 
@@ -10,7 +11,7 @@ public:
     Menus() {}
 
     int     menu();
-    void    execFile(string nomefich);
+    void    execFile(string nomefich, Ilha i);
 };
 
 #endif //UNTITLED_MENU_H

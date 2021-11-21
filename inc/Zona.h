@@ -14,16 +14,20 @@ protected:
     string tipo;
 
     Edificio edif;
-    vector<Trabalhador*> empreg;
+    vector<Trabalhador> empreg;
 
 
 public:
     Zona(string t, int px, int py) : tipo(t), posX(px), posY(py) {}
 
     void        construirEdificio(string nome);
+    void        colocarTrabalhador(string nome, Trabalhador t);
 
     string      getTipo();
     string      getEdif();
+
+    int         getNTrab();
+    string      getTrab();
 
 
     //Por implementar na meta 2

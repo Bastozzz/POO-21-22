@@ -1,5 +1,5 @@
 cont miner
-cons minaf
-cons minaf
+cons minaf 2 2
+cons minaf 4 1
 cont miner
 list

@@ -6,7 +6,7 @@ string Zona::getTipo(){
 };
 
 void Zona::construirEdificio(string nome){
-    if(nome == "minaf"){
+    if(nome == "mnF"){
         MinaFerro mf;
         edif = mf;
     }

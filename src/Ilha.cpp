@@ -36,7 +36,6 @@ void Ilha::criaIlha() {
             Zona z(verifica[i][j], i, j);
             Zonas.push_back(z);
         }
-
     }
 };
 
@@ -130,7 +129,6 @@ void Ilha::construir(string edifi, int l, int c){
 
     int posicao = ((l-1) * cZonas) + c;
     int times = 0;
-
     for (auto i = Zonas.begin(); i != Zonas.end(); ++i){
         times++;
         if(times == posicao){

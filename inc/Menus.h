@@ -11,7 +11,7 @@ public:
     Menus() {}
 
     int     menu();
-    void    execFile(string nomefich, Ilha i);
+    void    execFile(string nomefich, Ilha * i);
 };
 
 #endif //UNTITLED_MENU_H

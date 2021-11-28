@@ -11,6 +11,7 @@
 using namespace std;
 
 int     randTP(int n);
+bool    flag();
 
 
 #endif //UNTITLED_UTILS_H

@@ -3,7 +3,7 @@
 #include "../inc/Trabalhador.h"
 #include "../inc/Ilha.h"
 
-void Menus::execFile(string nomefich, Ilha i) {
+void Menus::execFile(string nomefich, Ilha * i) {
     string texto;
     ifstream ficheiro("../POO-21-22/" + nomefich);
 
@@ -23,7 +23,7 @@ void Menus::execFile(string nomefich, Ilha i) {
                     if (tipo == "minaf") {
                         if (linha > 0 ) {
                             if (coluna > 0) {
-                                i.construir("mnF", linha, coluna);
+                                i->construir("mnF", linha, coluna);
 
                                 cout << "Mina Ferro Construida" << endl;
                                 cout << endl;
@@ -102,7 +102,7 @@ void Menus::execFile(string nomefich, Ilha i) {
                 string tipo;
                 if (iss >> tipo) {
                     if (tipo == "miner") {
-                        i.contratar(tipo);
+                        i->contratar(tipo);
                         cout << "Mineiro Contratado" << endl;
                         cout << endl;
                     }
@@ -112,7 +112,7 @@ void Menus::execFile(string nomefich, Ilha i) {
             }
             else if (comando == "list") {           // Ver dados da ilha
 
-                i.mostraIlha();
+                i->mostraIlha();
 
 
             }
@@ -250,7 +250,7 @@ int Menus::menu() {
         if (iss >> comando) {
             if (comando == "exec") {
                 if (iss >> nomefich)
-                    execFile(nomefich, i);
+                    execFile(nomefich, &i);
                 else
                     cout << "\nComando invalido!!\n";
             }
@@ -402,7 +402,7 @@ int Menus::menu() {
             }
             else if (comando == "config") {        // Lê o ficheiro de texto e extrai informações
                 if (iss >> nomefich) {
-                    execFile(nomefich, i);
+                    execFile(nomefich, &i);
                     cout << endl;
                 }
             }

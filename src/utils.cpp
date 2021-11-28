@@ -5,3 +5,8 @@ int randTP(int n){
     x = rand() % n;
     return x;
 }
+
+bool flag(){
+    cout << "Estou aqui";
+    return 1;
+}

@@ -14,10 +14,11 @@ public:
 
     string getNome();
 
-
     //Por implementar na meta 2
     void   setNivel(int n);
     int    getNivel() const;
+    
+    string  getAsString() const;
 
 };
 
@@ -31,7 +32,6 @@ class MinaFerro : public Edificio {
 public:
     MinaFerro(string nom = "mnF", int n = 1) : Edificio(nom, n)  {}
 
-    string  getAsString() const;
 };
 
 #endif //UNTITLED_EDIFICIO_H

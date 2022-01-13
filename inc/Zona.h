@@ -22,12 +22,13 @@ public:
 
     void        construirEdificio(string nome);
     void        colocarTrabalhador(string nome, Trabalhador t);
+    void        recolherRecurso(string nome);
 
     string      getTipo();
     string      getEdif();
-
     int         getNTrab();
     string      getTrab();
+    string      getRec();
 
 
     //Por implementar na meta 2

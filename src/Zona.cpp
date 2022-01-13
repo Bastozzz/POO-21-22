@@ -10,6 +10,22 @@ void Zona::construirEdificio(string nome){
         MinaFerro mf;
         edif = mf;
     }
+    else if(nome == "mnC"){
+        MinaCarvao mc;
+        edif = mc;
+    }
+    else if(nome == "cEl"){
+        CentralEletrica ce;
+        edif = ce;
+    }
+    else if(nome == "bat"){
+        Bateria b;
+        edif = b;
+    }
+    else if(nome == "fun"){
+        Fundicao f;
+        edif = f;
+    }
 };
 
 void Zona::colocarTrabalhador(string nome, Trabalhador t) {

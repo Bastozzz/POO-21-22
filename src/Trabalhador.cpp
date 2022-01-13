@@ -17,6 +17,22 @@ string Trabalhador::getTipo() const {
     return tipo;
 };
 
+void Trabalhador::setPreco(int price) {
+    preco = price;
+}
+
+int Trabalhador::getPreco() const {
+    return preco;
+}
+
+void Trabalhador::setProbabilidade(int prob) {
+    probabilidade = prob;
+}
+
+double Trabalhador::getProbabilidade() const {
+    return probabilidade;
+}
+
 
 /*
  *
@@ -29,5 +45,16 @@ string Mineiro::getAsString() const {
     ostringstream oss;
     return oss.str();
 }
+
+string Lenhador::getAsString() const {
+    ostringstream oss;
+    return oss.str();
+}
+
+string Operario::getAsString() const {
+    ostringstream oss;
+    return oss.str();
+}
+
 
 

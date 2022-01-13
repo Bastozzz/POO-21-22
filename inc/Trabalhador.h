@@ -10,7 +10,7 @@ protected:
     string      ID;
     string      tipo;
     int         preco;
-    double      probabilidade;
+    double      probabilidade = 0.0;
 
 
 public:
@@ -37,12 +37,33 @@ public:
  *
  */
 
-//Sublacsse de mineiro
+//Subclasses
+
 class Mineiro : public Trabalhador {
 
 public:
     Mineiro(){}
-    Mineiro(string id, int price, double prob) : Trabalhador(id, price, prob) {}
+    Mineiro(string id, double prob, int d, int price=15) : Trabalhador(id, price, prob) {}
+
+    string getAsString() const;
+
+};
+
+class Lenhador : public Trabalhador {
+
+public:
+    Lenhador(){}
+    Lenhador(string id, double prob, int d, int price=20) : Trabalhador(id, price, prob) {}
+
+    string getAsString() const;
+
+};
+
+class Operario : public Trabalhador {
+
+public:
+    Operario(){}
+    Operario(string id, double prob, int price=10) : Trabalhador(id, price, prob) {}
 
     string getAsString() const;
 

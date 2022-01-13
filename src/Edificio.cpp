@@ -11,6 +11,23 @@ string Edificio::getAsString() const {
     return oss.str();
 }
 
+void Edificio::setNivel(int n) {
+    nivel = n;
+}
+
+int Edificio::getNivel() const {
+    return nivel;
+}
+
+int Edificio::liga() {
+    return ligaEdificio = true;
+}
+
+int Edificio::desliga() {
+    return ligaEdificio = false;
+}
+
+
 /*
  *
  *

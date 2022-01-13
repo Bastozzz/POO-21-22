@@ -57,6 +57,7 @@ class Pastagem : public Zona{
 
 class Floresta : public Zona{
 
+    //Armazenar recursos
 };
 
 class Montanha : public Zona{

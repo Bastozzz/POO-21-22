@@ -14,13 +14,19 @@ class Ilha {
     int         dia;
     int         tmpCount;
 
-    //Em que [0] é o número de desertos, [1] é o de florestas, [2] é o de montanha, [3] é o de pantano, e o [4] é o de pastagens
-    int         nZonas[5];
+    //Recursos
     int         riqueza;
+    int         ferro;
+    int         barraAco;
+    int         carvao;
+    int         madeira;
+    int         vigasMadeira;
+    int         eletricidade;
+
 
 public:
     Ilha() {}
-    Ilha(int riq, int lzon, int czon, int nd, int tmp = 1) : riqueza(riq), lZonas(lzon), cZonas(czon), dia(nd), tmpCount(tmp){}
+    Ilha(int riq, int lzon, int czon, int nd, int tmp = 1) : riqueza(riq), lZonas(lzon), cZonas(czon), dia(nd), tmpCount(tmp), ferro(0), barraAco(0), carvao(0), madeira(0), vigasMadeira(0), eletricidade(0) {}
 
     vector<Zona>             Zonas;
 
@@ -36,15 +42,34 @@ public:
 
     int         getNTrabalhadores();
     int         getDia();
+    void        setDia(double d);
+
     int         getCount();
 
+    //Recursos
+    int         getRiqueza();
+    void        setRiqueza(double valor);
+
+    int         getFerro();
+    void        setFerro(double valor);
+
+    int         getBarraAco();
+    void        setBarraAco(double valor);
+
+    int         getCarvao();
+    void        setCarvao(double valor);
+
+    int         getMadeira();
+    void        setMadeira(double valor);
+
+    int         getVigasMadeira();
+    void        setVigasMadeira(double valor);
+
+    int         getEletricidade();
+    void        setEletricidade(double valor);
+
+    void        retornaRecursos();
     string      getAsString() const;
-
-
-    //Por implementar na meta 2
-    int         getriqueza();
-    void        setriqueza(double dinhinicial);
-    void        setDia(double d);
 
 };
 

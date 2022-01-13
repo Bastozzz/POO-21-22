@@ -86,6 +86,8 @@ void Ilha::mostraIlha(){
     }
 
     cout << endl;
+
+    retornaRecursos();
 };
 
 
@@ -173,9 +175,80 @@ int Ilha::getDia() {
     return dia;
 };
 
+//Recursos
+int Ilha::getRiqueza(){
+    return riqueza;
+};
+void Ilha::setRiqueza(double valor) {
+    riqueza = valor;
+}
+
+
+int Ilha::getFerro(){
+    return ferro;
+};
+void Ilha::setFerro(double valor) {
+    ferro = valor;
+}
+
+
+int Ilha::getBarraAco(){
+    return barraAco;
+};
+void Ilha::setBarraAco(double valor) {
+    barraAco = valor;
+}
+
+
+int Ilha::getCarvao(){
+    return carvao;
+};
+void Ilha::setCarvao(double valor){
+    carvao = valor;
+}
+
+
+int Ilha::getMadeira(){
+    return madeira;
+};
+void Ilha::setMadeira(double valor){
+    madeira = valor;
+}
+
+
+int Ilha::getVigasMadeira() {
+    return vigasMadeira;
+};
+void Ilha::setVigasMadeira(double valor) {
+    vigasMadeira = valor;
+}
+
+
+int Ilha::getEletricidade(){
+    return eletricidade;
+};
+void Ilha::setEletricidade(double valor){
+    eletricidade = valor;
+}
+
+
+void Ilha::retornaRecursos(){
+    cout << "------------------------//--------------------------" << endl;
+    cout << "Riqueza: " << getRiqueza() << endl;
+    cout << "Ferro -> " << getFerro();
+    cout << " | Barras de Aco -> " << getBarraAco();
+    cout << " | Carvao -> " << getFerro() << endl;
+    cout << "Madeira -> " << getMadeira();
+    cout << " | Vigas de Madeira -> " << getVigasMadeira();
+    cout << " | Eletricidade -> " << getEletricidade() << endl;
+    cout << "------------------------//--------------------------" << endl << endl;
+}
+
+
 string Ilha::getAsString() const {
     ostringstream oss;
     Edificio e;
     Trabalhador t;
     return oss.str();
 }
+

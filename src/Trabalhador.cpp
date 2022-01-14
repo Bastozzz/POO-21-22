@@ -17,14 +17,6 @@ string Trabalhador::getTipo() const {
     return tipo;
 };
 
-void Trabalhador::setPreco(int price) {
-    preco = price;
-}
-
-int Trabalhador::getPreco() const {
-    return preco;
-}
-
 void Trabalhador::setProbabilidade(int prob) {
     probabilidade = prob;
 }

@@ -1,6 +1,7 @@
 #include "../inc/Zona.h"
 #include "../inc/Ilha.h"
 
+
 string Zona::getTipo(){
     return tipo;
 };
@@ -33,6 +34,9 @@ void Zona::colocarTrabalhador(string nome, Trabalhador t) {
     empreg.push_back(t);
 };
 
+void Zona::retirarTrabalhador(int pos){
+    empreg.erase(empreg.begin() + pos);
+}
 
 string Zona::getEdif() {
     return edif.getNome();
@@ -54,6 +58,24 @@ string Zona::getTrab() {
             cout << " ";
         }
     }
+}
+
+Trabalhador Zona::copyTrab(int pos){
+    return empreg[pos];
+}
+
+string Zona::getTrabId(int pos) {
+    int times = 0;
+    for (auto i = empreg.begin(); i != empreg.end(); ++i) {
+        if(times == pos){
+            return i->getID();
+        }
+        times++;
+    }
+}
+
+string Zona::getTrabName(int pos){
+    return empreg[pos].getTipo();
 }
 
 int Zona::getNTrab() {

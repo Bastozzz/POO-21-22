@@ -415,10 +415,10 @@ int Menus::menu() {
             }
             else if (comando == "move") {           // Move trabalhador
                 if (iss >> id && iss >> linha && iss >> coluna) {
-                    if (id == "") {                 // TODO id
+                    //if (id == "") {                 // TODO id
                         if(linha > 0) {
                             if (coluna > 0) {
-                                cout << "\nComando indisponível\n" << endl;
+                                i.moveTrabalhador(id, linha, coluna);
                                 cout << endl;
                             }
                             else
@@ -426,9 +426,9 @@ int Menus::menu() {
                         }
                         else
                             cout << "\nComando invalido!!\n";
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
+                    //}
+                    //else
+                        //cout << "\nComando invalido!!\n";
                 }
             }
             else if (comando == "vende") {          // Vende recursos

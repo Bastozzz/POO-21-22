@@ -40,9 +40,10 @@ public:
     void        construir(string edifi, int l, int c);
     void        contratar(string nome);
 
-    int         getNTrabalhadores();
+    void        moveTrabalhador(string id, int lin, int col);
+
     int         getDia();
-    void        setDia(double d);
+    void        setDia(int d);
 
     int         getCount();
 

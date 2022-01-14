@@ -9,13 +9,12 @@ class Trabalhador {
 protected:
     string      ID;
     string      tipo;
-    int         preco;
     double      probabilidade = 0.0;
 
 
 public:
     Trabalhador(){}
-    Trabalhador(string id, int price = 0, double prob = 0.0) : ID(id), preco(price), probabilidade(prob) {}
+    Trabalhador(string id, double prob = 0.0) : ID(id), probabilidade(prob) {}
 
     void        setID(int i, int dia);
     string      getID() const;
@@ -23,10 +22,6 @@ public:
     void        setTipo(string t);
     string      getTipo() const;
 
-
-    //Por implementar na meta 2
-    void        setPreco(int price);
-    int         getPreco() const;
     void        setProbabilidade(int prob);
     double      getProbabilidade() const;
 
@@ -43,7 +38,7 @@ class Mineiro : public Trabalhador {
 
 public:
     Mineiro(){}
-    Mineiro(string id, double prob, int d, int price=15) : Trabalhador(id, price, prob) {}
+    Mineiro(string id, double prob, int d) : Trabalhador(id, prob) {}
 
     string getAsString() const;
 
@@ -53,7 +48,7 @@ class Lenhador : public Trabalhador {
 
 public:
     Lenhador(){}
-    Lenhador(string id, double prob, int d, int price=20) : Trabalhador(id, price, prob) {}
+    Lenhador(string id, double prob, int d) : Trabalhador(id, prob) {}
 
     string getAsString() const;
 
@@ -63,7 +58,7 @@ class Operario : public Trabalhador {
 
 public:
     Operario(){}
-    Operario(string id, double prob, int price=10) : Trabalhador(id, price, prob) {}
+    Operario(string id, double prob) : Trabalhador(id, prob) {}
 
     string getAsString() const;
 

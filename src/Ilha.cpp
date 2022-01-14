@@ -147,6 +147,7 @@ void Ilha::contratar(string nome) {
         t.setID(tmpCount, getDia());
         t.setTipo(nome);
 
+        //cout << "TMP: " << tmpCount << " | ID: " << t.getID() << endl;
         tmpCount++;
 
         while(1){
@@ -167,13 +168,37 @@ void Ilha::contratar(string nome) {
     }
 }
 
-int Ilha::getCount(){
-    return tmpCount;
-}
+void Ilha::moveTrabalhador(string id, int lin, int col){
+    int times = 0;
+    int posicao = ((lin-1) * cZonas) + col-1;
+    string temp;
+    Trabalhador copia;
+
+    for (auto i = Zonas.begin(); i != Zonas.end(); ++i){
+        //cout << "Zona: " << times << endl;
+        for(int j = 0; j < i->getNTrab(); j++){
+            if(id == i->getTrabId(j)){
+                temp = i->getTrabName(j);
+                copia = i->copyTrab(j);
+                i->retirarTrabalhador(j);
+                Zonas[posicao].colocarTrabalhador(temp, copia);
+            }
+        }
+        times++;
+    }
+};
 
 int Ilha::getDia() {
     return dia;
 };
+
+void Ilha::setDia(int d) {
+    dia = d;
+};
+
+int Ilha::getCount(){
+    return tmpCount;
+}
 
 //Recursos
 int Ilha::getRiqueza(){
@@ -237,7 +262,7 @@ void Ilha::retornaRecursos(){
     cout << "Riqueza: " << getRiqueza() << endl;
     cout << "Ferro -> " << getFerro();
     cout << " | Barras de Aco -> " << getBarraAco();
-    cout << " | Carvao -> " << getFerro() << endl;
+    cout << " | Carvao -> " << getCarvao() << endl;
     cout << "Madeira -> " << getMadeira();
     cout << " | Vigas de Madeira -> " << getVigasMadeira();
     cout << " | Eletricidade -> " << getEletricidade() << endl;

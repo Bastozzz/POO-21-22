@@ -22,12 +22,18 @@ public:
 
     void        construirEdificio(string nome);
     void        colocarTrabalhador(string nome, Trabalhador t);
+    void        retirarTrabalhador(int pos);
     void        recolherRecurso(string nome);
 
     string      getTipo();
     string      getEdif();
+
+    Trabalhador copyTrab(int pos);
     int         getNTrab();
     string      getTrab();
+    string      getTrabId(int pos);
+    string      getTrabName(int pos);
+
     string      getRec();
 
 

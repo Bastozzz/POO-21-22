@@ -38,7 +38,6 @@ class Mineiro : public Trabalhador {
 
 public:
     Mineiro(){}
-    Mineiro(string id, double prob, int d) : Trabalhador(id, prob) {}
 
     string getAsString() const;
 
@@ -48,7 +47,6 @@ class Lenhador : public Trabalhador {
 
 public:
     Lenhador(){}
-    Lenhador(string id, double prob, int d) : Trabalhador(id, prob) {}
 
     string getAsString() const;
 
@@ -58,7 +56,6 @@ class Operario : public Trabalhador {
 
 public:
     Operario(){}
-    Operario(string id, double prob) : Trabalhador(id, prob) {}
 
     string getAsString() const;
 

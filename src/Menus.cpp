@@ -301,6 +301,7 @@ int Menus::menu() {
     Edificio e;
 
     do {
+
         cout << "Introduza um comando: \n";
         getline(cin, comando);
         istringstream iss(comando);
@@ -448,9 +449,8 @@ int Menus::menu() {
             else if (comando == "cont") {           // contrata trabalhador
                 string tipo;
                 if (iss >> tipo) {
-                    if (tipo == "miner") {
+                    if (tipo == "miner" || tipo == "len" || tipo == "oper") {
                         i.contratar(tipo);
-                        cout << "Mineiro Contratado" << endl;
                         cout << endl;
                     }
                     else

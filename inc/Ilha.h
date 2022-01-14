@@ -72,6 +72,13 @@ public:
     void        retornaRecursos();
     string      getAsString() const;
 
+    /*
+     *
+     */
+
+    //Passar turnos
+    void nextTurn();
+
 };
 
 #endif //UNTITLED_ILHA_H

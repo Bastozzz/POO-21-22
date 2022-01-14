@@ -33,3 +33,9 @@ int Edificio::desliga() {
  *
  *
  */
+
+void MinaFerro::produzir() {
+    ferro += 2 + (getNivel() - 1);
+    if(ferro > 100) ferro = 100;
+
+}

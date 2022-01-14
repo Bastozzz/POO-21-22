@@ -86,7 +86,7 @@ void Ilha::mostraIlha(){
     }
 
     cout << endl;
-
+    cout << "Dia numero " << getDia() << endl;
     retornaRecursos();
 };
 
@@ -142,30 +142,113 @@ void Ilha::construir(string edifi, int l, int c){
 void Ilha::contratar(string nome) {
 
     if(nome == "miner"){
-        Mineiro t;
-        string temp;
-        t.setID(tmpCount, getDia());
-        t.setTipo(nome);
+        if(getRiqueza() >= 10){
+            Mineiro t;
+            string temp;
+            t.setID(tmpCount, getDia());
+            t.setTipo(nome);
 
-        //cout << "TMP: " << tmpCount << " | ID: " << t.getID() << endl;
-        tmpCount++;
+            //cout << "TMP: " << tmpCount << " | ID: " << t.getID() << endl;
+            tmpCount++;
 
-        while(1){
-            int times = 0;
-            int flag = 0;
-            int temp = randTP(lZonas * cZonas);
+            while(1){
+                int times = 0;
+                int flag = 0;
+                int temp = randTP(lZonas * cZonas);
 
-            for (auto i = Zonas.begin(); i != Zonas.end(); ++i){
-                times++;
-                if(i->getTipo() == "pas" && times == temp){
-                    i->colocarTrabalhador("M", t);
-                    flag = 1;
-                    break;
+                for (auto i = Zonas.begin(); i != Zonas.end(); ++i){
+                    times++;
+                    if(i->getTipo() == "pas" && times == temp){
+                        i->colocarTrabalhador("M", t);
+                        flag = 1;
+                        break;
+                    }
                 }
+                if(flag == 1) break;
             }
-            if(flag == 1) break;
+            setRiqueza(getRiqueza()-10);
+            cout << "Mineiro Contratado" << endl;
+            cout << "Novo balanco: " << getRiqueza() << endl;
         }
+        else{
+            cout << "Não tem dinheiro suficiente para contratar o mineiro" << endl;
+        }
+
     }
+
+
+    if(nome == "len"){
+        if(getRiqueza() >= 10){
+            Lenhador l;
+            string temp;
+            l.setID(tmpCount, getDia());
+            l.setTipo(nome);
+
+            //cout << "TMP: " << tmpCount << " | ID: " << t.getID() << endl;
+            tmpCount++;
+
+            while(1){
+                int times = 0;
+                int flag = 0;
+                int temp = randTP(lZonas * cZonas);
+
+                for (auto i = Zonas.begin(); i != Zonas.end(); ++i){
+                    times++;
+                    if(i->getTipo() == "pas" && times == temp){
+                        i->colocarTrabalhador("L", l);
+                        flag = 1;
+                        break;
+                    }
+                }
+                if(flag == 1) break;
+            }
+            setRiqueza(getRiqueza()-20);
+            cout << "Lenhador Contratado" << endl;
+            cout << "Novo balanco: " << getRiqueza() << endl;
+        }
+        else{
+            cout << "Não tem dinheiro suficiente para contratar o lenhador" << endl;
+        }
+
+    }
+
+
+    if(nome == "oper"){
+        if(getRiqueza() >= 10){
+            Operario o;
+            string temp;
+            o.setID(tmpCount, getDia());
+            o.setTipo(nome);
+
+            //cout << "TMP: " << tmpCount << " | ID: " << t.getID() << endl;
+            tmpCount++;
+
+            while(1){
+                int times = 0;
+                int flag = 0;
+                int temp = randTP(lZonas * cZonas);
+
+                for (auto i = Zonas.begin(); i != Zonas.end(); ++i){
+                    times++;
+                    if(i->getTipo() == "pas" && times == temp){
+                        i->colocarTrabalhador("O", o);
+                        flag = 1;
+                        break;
+                    }
+                }
+                if(flag == 1) break;
+            }
+            setRiqueza(getRiqueza()-15);
+            cout << "Operario Contratado" << endl;
+            cout << "Novo balanco: " << getRiqueza() << endl;
+        }
+        else{
+            cout << "Não tem dinheiro suficiente para contratar o operario" << endl;
+        }
+
+    }
+
+
 }
 
 void Ilha::moveTrabalhador(string id, int lin, int col){
@@ -267,6 +350,16 @@ void Ilha::retornaRecursos(){
     cout << " | Vigas de Madeira -> " << getVigasMadeira();
     cout << " | Eletricidade -> " << getEletricidade() << endl;
     cout << "------------------------//--------------------------" << endl << endl;
+}
+
+/*
+ *
+ */
+
+
+
+void Ilha::nextTurn() {
+
 }
 
 

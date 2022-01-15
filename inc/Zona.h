@@ -10,20 +10,19 @@ class Edificio;
 
 class Zona {
 protected:
-    int posX, posY;
     string tipo;
-
+    int posX, posY;
     Edificio edif;
     vector<Trabalhador> empreg;
-
 
 public:
     Zona(string t, int px, int py) : tipo(t), posX(px), posY(py) {}
 
     void        construirEdificio(string nome);
     void        colocarTrabalhador(string nome, Trabalhador t);
-    void        retirarTrabalhador(int pos);
     void        recolherRecurso(string nome);
+    void        retirarTrabalhador(int pos);
+    void        retirarEdificio(string nome, int pos);
 
     string      getTipo();
     string      getEdif();
@@ -36,7 +35,6 @@ public:
 
     string      getRec();
 
-
     //Por implementar na meta 2
     int         getPosX();
     void        setPosX(int pos);
@@ -46,12 +44,6 @@ public:
 
 };
 
-
-/*
- *
- *
- *
- */
 
 class Deserto : public Zona{
 

@@ -1,10 +1,4 @@
 #include "../inc/Zona.h"
-#include "../inc/Ilha.h"
-
-
-string Zona::getTipo(){
-    return tipo;
-};
 
 void Zona::construirEdificio(string nome){
     if(nome == "mnF"){
@@ -27,15 +21,27 @@ void Zona::construirEdificio(string nome){
         Fundicao f;
         edif = f;
     }
-};
+}
 
 void Zona::colocarTrabalhador(string nome, Trabalhador t) {
     t.setTipo(nome);
     empreg.push_back(t);
-};
+}
+
+void Zona::recolherRecurso(string nome) {           // TODO: recolher recurso
+
+}
 
 void Zona::retirarTrabalhador(int pos){
     empreg.erase(empreg.begin() + pos);
+}
+
+void Zona::retirarEdificio(string nome, int pos) {      // TODO: retirar edificio
+
+}
+
+string Zona::getTipo() {
+    return tipo;
 }
 
 string Zona::getEdif() {
@@ -47,7 +53,6 @@ string Zona::getTrab() {
     if(empreg.size() == 0){
         cout << "    ";
     }
-
     else {
         for (auto i = empreg.begin(); i != empreg.end(); ++i) {
             cout << i->getTipo();

@@ -14,6 +14,7 @@ public:
     Edificio(string nom, int n) : nome(nom), nivel(n) {};
 
     string getNome();
+    void setNome(string n);
 
     //Por implementar na meta 2
     void   setNivel(int n);
@@ -26,11 +27,6 @@ public:
 
 };
 
-/*
- *
- *
- *
- */
 
 //Subclasses
 
@@ -41,7 +37,6 @@ class MinaFerro : public Edificio {
 public:
     MinaFerro(string nom = "mnF", int n = 1, int maxF = 100, int f = 0) : Edificio(nom, n), maxFerro(maxF), ferro(f)  {}
 
-    void produzir();
 };
 
 class MinaCarvao : public Edificio {

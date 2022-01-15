@@ -1,9 +1,6 @@
 #include "../inc/Menus.h"
-#include "../inc/Edificio.h"
-#include "../inc/Trabalhador.h"
-#include "../inc/Ilha.h"
 
-void Menus::execFile(string nomefich, Ilha * i) {
+void Menus::execFile(string &nomefich, Ilha * i) {
     string texto;
     ifstream ficheiro("../" + nomefich);
 
@@ -11,86 +8,40 @@ void Menus::execFile(string nomefich, Ilha * i) {
     int linha, coluna, quanto, valor;
 
     Edificio e;
+    Trabalhador t;
 
     while (ficheiro) {
-
         getline(ficheiro, texto);
         istringstream iss;
         iss.str(texto);
         iss >> comando;
 
-
         if (comando == "cons") {       // constroi edificio
             if (iss >> tipo && iss >> linha && iss >> coluna) {
-                if (tipo == "minaf") {
-                    if (linha > 0 ) {
-                        if (coluna > 0) {
-                            i->construir("mnF", linha, coluna);
-
-                            cout << "Mina Ferro Construida" << endl;
-                            cout << endl;
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
+                if (tipo == "minaf" && linha > 0 && coluna > 0) {
+                    i->construir("mnF", linha, coluna);
+                    cout << "Mina Ferro Construida" << endl;
+                    cout << endl;
                 }
-                else if (tipo == "minac") {
-                    if (linha > 0 ) {
-                        if (coluna > 0) {
-                            i->construir("mnC", linha, coluna);
-
-                            cout << "Mina de Carvao Construida" << endl;
-                            cout << endl;
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
+                else if (tipo == "minac" && linha > 0 && coluna > 0) {
+                    i->construir("mnC", linha, coluna);
+                    cout << "Mina de Carvao Construida" << endl;
+                    cout << endl;
                 }
-                else if (tipo == "central") {
-                    if (linha > 0 ) {
-                        if (coluna > 0) {
-                            i->construir("cEl", linha, coluna);
-
-                            cout << "Central Eletrica Construida" << endl;
-                            cout << endl;
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
+                else if (tipo == "central" && linha > 0 && coluna > 0) {
+                    i->construir("cEl", linha, coluna);
+                    cout << "Central Eletrica Construida" << endl;
+                    cout << endl;
                 }
-                else if (tipo == "bat") {
-                    if (linha > 0 ) {
-                        if (coluna > 0) {
-                            i->construir("bat", linha, coluna);
-
-                            cout << "Bateria Construida" << endl;
-                            cout << endl;
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
+                else if (tipo == "bat" && linha > 0 && coluna > 0) {
+                    i->construir("bat", linha, coluna);
+                    cout << "Bateria Construida" << endl;
+                    cout << endl;
                 }
-                else if (tipo == "fund") {
-                    if (linha > 0 ) {
-                        if (coluna > 0) {
-                            i->construir("fun", linha, coluna);
-
-                            cout << "Fundicao Construida" << endl;
-                            cout << endl;
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
+                else if (tipo == "fund" && linha > 0 && coluna > 0) {
+                    i->construir("fun", linha, coluna);
+                    cout << "Fundicao Construida" << endl;
+                    cout << endl;
                 }
                 else
                     cout << "\nComando invalido!!\n";
@@ -98,12 +49,10 @@ void Menus::execFile(string nomefich, Ilha * i) {
         }
         else if (comando == "liga") {           // Liga o edifício
             if (iss >> linha && iss >> coluna) {
-                if (linha > 0 ) {
-                    if (coluna > 0) {
-                        e.liga();
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
+                if (linha > 0 && coluna) {
+                    e.liga();
+                    cout << "Edificio Ligado" << endl;
+                    cout << endl;
                 }
                 else
                     cout << "\nComando invalido!!\n";
@@ -111,12 +60,10 @@ void Menus::execFile(string nomefich, Ilha * i) {
         }
         else if (comando == "des") {            // Desliga o edifício
             if (iss >> linha && iss >> coluna) {
-                if (linha > 0 ) {
-                    if (coluna > 0) {
-                        e.desliga();
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
+                if (linha > 0 && coluna > 0) {
+                    e.desliga();
+                    cout << "Edificio Desligado" << endl;
+                    cout << endl;
                 }
                 else
                     cout << "\nComando invalido!!\n";
@@ -124,17 +71,10 @@ void Menus::execFile(string nomefich, Ilha * i) {
         }
         else if (comando == "move") {           // Move trabalhador
             if (iss >> id && iss >> linha && iss >> coluna) {
-                if (id == "") {
-                    if(linha > 0) {
-                        if (coluna > 0) {
-                            cout << "\nComando indisponível\n" << endl;
-                            cout << endl;
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
+                if (id == t.getID() && linha > 0 && coluna > 0) {                 // TODO id
+                    i->moveTrabalhador(id, linha, coluna);
+                    cout << "Trabalhador movido" << endl;
+                    cout << endl;
                 }
                 else
                     cout << "\nComando invalido!!\n";
@@ -142,24 +82,49 @@ void Menus::execFile(string nomefich, Ilha * i) {
         }
         else if (comando == "vende") {          // Vende recursos
             if (iss >> tipo && iss >> quanto) {
-                if (tipo == "ferro") {
-                    if (quanto > 0) {
-                        cout << "\nComando indisponível\n" << endl;
-                        cout << endl;
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
+                if (tipo == "ferro" && quanto > 0) {
+                    cout << "\nComando indisponível\n" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "aco" && quanto > 0) {
+                    cout << "\nComando indisponível\n" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "carvao" && quanto > 0) {
+                    cout << "\nComando indisponível\n" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "mad" && quanto > 0) {
+                    cout << "\nComando indisponível\n" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "viga" && quanto > 0) {
+                    cout << "\nComando indisponível\n" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "eletr" && quanto > 0) {
+                    cout << "\nComando indisponível\n" << endl;
+                    cout << endl;
                 }
                 else
                     cout << "\nComando invalido!!\n";
             }
         }
         else if (comando == "cont") {           // contrata trabalhador
-            string tipo;
             if (iss >> tipo) {
                 if (tipo == "miner") {
                     i->contratar(tipo);
                     cout << "Mineiro Contratado" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "oper") {
+                    i->contratar(tipo);
+                    cout << "Operario Contratado" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "len") {
+                    i->contratar(tipo);
+                    cout << "Lenhador Contratado" << endl;
                     cout << endl;
                 }
                 else
@@ -167,20 +132,34 @@ void Menus::execFile(string nomefich, Ilha * i) {
             }
         }
         else if (comando == "list") {           // Ver dados da ilha
-
             i->mostraIlha();
-
-
         }
         else if (comando == "vende") {          // Vende edificios
-            if (iss >> linha && iss >> coluna) {
-                if (linha > 0) {
-                    if (coluna > 0) {
-                        cout << "\nComando indisponível\n" << endl;
-                        cout << endl;
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
+            if (iss >> tipo && iss >> linha && iss >> coluna) {
+                if (tipo == "minaf" && linha > 0 && coluna > 0) {
+                    i->venderEdificio(tipo, linha, coluna);
+                    cout << "Mina de Ferro Vendida" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "minac" && linha > 0 && coluna > 0) {
+                    i->venderEdificio(tipo, linha, coluna);
+                    cout << "Mina de Carvao Vendida" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "central" && linha > 0 && coluna > 0) {
+                    i->venderEdificio(tipo, linha, coluna);
+                    cout << "Central Eletrica Vendida" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "bat" && linha > 0 && coluna > 0) {
+                    i->venderEdificio(tipo, linha, coluna);
+                    cout << "Bateria Vendida" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "fund" && linha > 0 && coluna > 0) {
+                    i->venderEdificio(tipo, linha, coluna);
+                    cout << "Fundicao Vendida" << endl;
+                    cout << endl;
                 }
                 else
                     cout << "\nComando invalido!!\n";
@@ -220,17 +199,10 @@ void Menus::execFile(string nomefich, Ilha * i) {
                     cout << "\nComando invalido!!\n";
             }
         }
-        else if (comando == "config") {        // Lê o ficheiro de texto e extrai informações
-            if (iss >> nomefich) {
-                execFile(nomefich, i);
-                cout << endl;
-            }
-        }
-        else if (comando == "debcash ") {      // Adicina a quantidade de €
+        else if (comando == "debcash") {      // Adicina a quantidade de €
             if (iss >> valor) {
                 if (valor > 0) {
-                    cout << "\nComando indisponível\n" << endl;
-                    cout << endl;
+                    i->adicionaValor(valor);
                 }
                 else
                     cout << "\nComando invalido!!\n";
@@ -238,17 +210,30 @@ void Menus::execFile(string nomefich, Ilha * i) {
         }
         else if (comando == "debed") {        // Adiciona um edifício a custo zero
             if (iss >> tipo && iss >> linha && iss >> coluna) {
-                if (tipo == "minaf") {
-                    if(linha > 0) {
-                        if (coluna > 0) {
-                            cout << "\nComando indisponível\n" << endl;
-                            cout << endl;
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
+                if (tipo == "minaf" && linha > 0 && coluna > 0) {
+                    i->adicionaEdificio("mnF", linha, coluna);
+                    cout << "Mina de Ferro adicionado" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "minac" && linha > 0 && coluna > 0) {
+                    i->adicionaEdificio("mnC", linha, coluna);
+                    cout << "Mina de Carvao Construida" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "central" && linha > 0 && coluna > 0) {
+                    i->adicionaEdificio("cEl", linha, coluna);
+                    cout << "Central Eletrica Construida" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "bat" && linha > 0 && coluna > 0) {
+                    i->adicionaEdificio("bat", linha, coluna);
+                    cout << "Bateria Construida" << endl;
+                    cout << endl;
+                }
+                else if (tipo == "fund" && linha > 0 && coluna > 0) {
+                    i->adicionaEdificio("fun", linha, coluna);
+                    cout << "Fundicao Construida" << endl;
+                    cout << endl;
                 }
                 else
                     cout << "\nComando invalido!!\n";
@@ -256,16 +241,12 @@ void Menus::execFile(string nomefich, Ilha * i) {
         }
         else if (comando == "debkill") {      // Remove o trabalhador
             if (iss >> id) {
-                if (id == "") {                 // TODO id
-                    cout << "\nComando indisponível\n" << endl;
-                    cout << endl;
+                if (id == t.getID()) {                 // TODO id
+                    i->removeTrabalhador(id);
                 }
                 else
                     cout << "\nComando invalido!!\n";
             }
-        }
-        else if (comando == "sair") {
-            exit(3);
         }
         else {
             cout << "\nComando Invalido!!\n" << endl;
@@ -273,7 +254,90 @@ void Menus::execFile(string nomefich, Ilha * i) {
     }
 }
 
+void Menus::configFile(string nomefich, Ilha * i) {
+    string texto;
+    ifstream ficheiro("../" + nomefich);
 
+    string comando;
+    int valor;
+
+    while (ficheiro) {
+        getline(ficheiro, texto);
+        istringstream iss;
+        iss.str(texto);
+        iss >> comando;
+
+        if (comando == "minaf") {
+            if (iss >> valor) {
+                if (valor > 0) {
+                    cout << "Mina Ferro Comprada" << endl;
+                    i->comprarEdificio(comando, valor);
+                    cout << endl;
+                } else
+                    cout << "\nComando invalido!!\n";
+            }
+        } else if (comando == "minac") {
+            if (iss >> valor) {
+                if (valor > 0) {
+                    cout << "Mina Carvao Comprada" << endl;
+                    i->comprarEdificio(comando, valor);
+                    cout << endl;
+                } else
+                    cout << "\nComando invalido!!\n";
+            }
+        }else if (comando == "central") {
+            if (iss >> valor) {
+                if (valor > 0) {
+                    cout << "Central Eletrica Comprada" << endl;
+                    i->comprarEdificio(comando, valor);
+                    cout << endl;
+                } else
+                    cout << "\nComando invalido!!\n";
+            }
+        } else if (comando == "bat") {
+            if (iss >> valor) {
+                if (valor > 0) {
+                    cout << "Bateria Comprada" << endl;
+                    i->comprarEdificio(comando, valor);
+                    cout << endl;
+                } else
+                    cout << "\nComando invalido!!\n";
+            }
+        } else if (comando == "fund") {
+            if (iss >> valor) {
+                if (valor > 0) {
+                    cout << "Fundicao Comprada" << endl;
+                    i->comprarEdificio(comando, valor);
+                    cout << endl;
+                } else
+                    cout << "\nComando invalido!!\n";
+            }
+        } else if (comando == "oper") {
+            if (iss >> valor) {
+                if (valor > 0) {
+                    i->comprarTrabalhador(comando, valor);
+                } else
+                    cout << "\nComando invalido!!\n";
+            }
+        } else if (comando == "len") {
+            if (iss >> valor) {
+                if (valor > 0) {
+                    i->comprarTrabalhador(comando, valor);
+                } else
+                    cout << "\nComando invalido!!\n";
+            }
+        } else if (comando == "miner") {
+            if (iss >> valor) {
+                if (valor > 0) {
+                    i->comprarTrabalhador(comando, valor);
+                } else
+                    cout << "\nComando invalido!!\n";
+            }
+        }
+        else
+            cout << "\nComando invalido!!\n";
+    }
+}
 
 int Menus::menu() {
 
@@ -299,9 +363,9 @@ int Menus::menu() {
     i.criaIlha();
     i.mostraIlha();
     Edificio e;
+    Trabalhador t;
 
     do {
-
         cout << "Introduza um comando: \n";
         getline(cin, comando);
         istringstream iss(comando);
@@ -314,75 +378,30 @@ int Menus::menu() {
             }
             else if (comando == "cons") {       // constroi edificio
                 if (iss >> tipo && iss >> linha && iss >> coluna) {
-                    if (tipo == "minaf") {
-                        if (linha > 0 ) {
-                            if (coluna > 0) {
-                                i.construir("mnF", linha, coluna);
-
-                                cout << "Mina Ferro Construida" << endl;
-                                cout << endl;
-                            }
-                            else
-                                cout << "\nComando invalido!!\n";
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
+                    if (tipo == "minaf" && linha > 0 && coluna > 0) {
+                        i.construir("mnF", linha, coluna);
+                        cout << "Mina Ferro Construida" << endl;
+                        cout << endl;
                     }
-                    else if (tipo == "minac") {
-                        if (linha > 0 ) {
-                            if (coluna > 0) {
-                                i.construir("mnC", linha, coluna);
-
-                                cout << "Mina de Carvao Construida" << endl;
-                                cout << endl;
-                            }
-                            else
-                                cout << "\nComando invalido!!\n";
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
+                    else if (tipo == "minac" && linha > 0 && coluna > 0) {
+                        i.construir("mnC", linha, coluna);
+                        cout << "Mina de Carvao Construida" << endl;
+                        cout << endl;
                     }
-                    else if (tipo == "central") {
-                        if (linha > 0 ) {
-                            if (coluna > 0) {
-                                i.construir("cEl", linha, coluna);
-
-                                cout << "Central Eletrica Construida" << endl;
-                                cout << endl;
-                            }
-                            else
-                                cout << "\nComando invalido!!\n";
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
+                    else if (tipo == "central" && linha > 0 && coluna > 0) {
+                        i.construir("cEl", linha, coluna);
+                        cout << "Central Eletrica Construida" << endl;
+                        cout << endl;
                     }
-                    else if (tipo == "bat") {
-                        if (linha > 0 ) {
-                            if (coluna > 0) {
-                                i.construir("bat", linha, coluna);
-
-                                cout << "Bateria Construida" << endl;
-                                cout << endl;
-                            }
-                            else
-                                cout << "\nComando invalido!!\n";
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
+                    else if (tipo == "bat" && linha > 0 && coluna > 0) {
+                        i.construir("bat", linha, coluna);
+                        cout << "Bateria Construida" << endl;
+                        cout << endl;
                     }
-                    else if (tipo == "fund") {
-                        if (linha > 0 ) {
-                            if (coluna > 0) {
-                                i.construir("fun", linha, coluna);
-
-                                cout << "Fundicao Construida" << endl;
-                                cout << endl;
-                            }
-                            else
-                                cout << "\nComando invalido!!\n";
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
+                    else if (tipo == "fund" && linha > 0 && coluna > 0) {
+                        i.construir("fun", linha, coluna);
+                        cout << "Fundicao Construida" << endl;
+                        cout << endl;
                     }
                     else
                         cout << "\nComando invalido!!\n";
@@ -390,12 +409,10 @@ int Menus::menu() {
             }
             else if (comando == "liga") {           // Liga o edifício
                 if (iss >> linha && iss >> coluna) {
-                    if (linha > 0 ) {
-                        if (coluna > 0) {
-                            e.liga();
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
+                    if (linha > 0 && coluna) {
+                        e.liga();
+                        cout << "Edificio Ligado" << endl;
+                        cout << endl;
                     }
                     else
                         cout << "\nComando invalido!!\n";
@@ -403,12 +420,10 @@ int Menus::menu() {
             }
             else if (comando == "des") {            // Desliga o edifício
                 if (iss >> linha && iss >> coluna) {
-                    if (linha > 0 ) {
-                        if (coluna > 0) {
-                            e.desliga();
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
+                    if (linha > 0 && coluna > 0) {
+                        e.desliga();
+                        cout << "Edificio Desligado" << endl;
+                        cout << endl;
                     }
                     else
                         cout << "\nComando invalido!!\n";
@@ -416,41 +431,60 @@ int Menus::menu() {
             }
             else if (comando == "move") {           // Move trabalhador
                 if (iss >> id && iss >> linha && iss >> coluna) {
-                    //if (id == "") {                 // TODO id
-                        if(linha > 0) {
-                            if (coluna > 0) {
-                                i.moveTrabalhador(id, linha, coluna);
-                                cout << endl;
-                            }
-                            else
-                                cout << "\nComando invalido!!\n";
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
-                    //}
-                    //else
-                        //cout << "\nComando invalido!!\n";
+                    if (id == t.getID() && linha > 0 && coluna > 0) {                 // TODO id
+                        i.moveTrabalhador(id, linha, coluna);
+                        cout << "Trabalhador movido" << endl;
+                        cout << endl;
+                    }
+                    else
+                        cout << "\nComando invalido!!\n";
                 }
             }
             else if (comando == "vende") {          // Vende recursos
                 if (iss >> tipo && iss >> quanto) {
-                    if (tipo == "ferro") {
-                        if (quanto > 0) {
-                            cout << "\nComando indisponível\n" << endl;
-                            cout << endl;
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
+                    if (tipo == "ferro" && quanto > 0) {
+                        cout << "\nComando indisponível\n" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "aco" && quanto > 0) {
+                        cout << "\nComando indisponível\n" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "carvao" && quanto > 0) {
+                        cout << "\nComando indisponível\n" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "mad" && quanto > 0) {
+                        cout << "\nComando indisponível\n" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "viga" && quanto > 0) {
+                        cout << "\nComando indisponível\n" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "eletr" && quanto > 0) {
+                        cout << "\nComando indisponível\n" << endl;
+                        cout << endl;
                     }
                     else
                         cout << "\nComando invalido!!\n";
                 }
             }
             else if (comando == "cont") {           // contrata trabalhador
-                string tipo;
                 if (iss >> tipo) {
-                    if (tipo == "miner" || tipo == "len" || tipo == "oper") {
+                    if (tipo == "miner") {
                         i.contratar(tipo);
+                        cout << "Mineiro Contratado" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "oper") {
+                        i.contratar(tipo);
+                        cout << "Operario Contratado" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "len") {
+                        i.contratar(tipo);
+                        cout << "Lenhador Contratado" << endl;
                         cout << endl;
                     }
                     else
@@ -458,20 +492,34 @@ int Menus::menu() {
                 }
             }
             else if (comando == "list") {           // Ver dados da ilha
-
                 i.mostraIlha();
-
-
             }
             else if (comando == "vende") {          // Vende edificios
-                if (iss >> linha && iss >> coluna) {
-                    if (linha > 0) {
-                        if (coluna > 0) {
-                            cout << "\nComando indisponível\n" << endl;
-                            cout << endl;
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
+                if (iss >> tipo && iss >> linha && iss >> coluna) {
+                    if (tipo == "minaf" && linha > 0 && coluna > 0) {
+                        i.venderEdificio(tipo, linha, coluna);
+                        cout << "Mina de Ferro Vendida" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "minac" && linha > 0 && coluna > 0) {
+                        i.venderEdificio(tipo, linha, coluna);
+                        cout << "Mina de Carvao Vendida" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "central" && linha > 0 && coluna > 0) {
+                        i.venderEdificio(tipo, linha, coluna);
+                        cout << "Central Eletrica Vendida" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "bat" && linha > 0 && coluna > 0) {
+                        i.venderEdificio(tipo, linha, coluna);
+                        cout << "Bateria Vendida" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "fund" && linha > 0 && coluna > 0) {
+                        i.venderEdificio(tipo, linha, coluna);
+                        cout << "Fundicao Vendida" << endl;
+                        cout << endl;
                     }
                     else
                         cout << "\nComando invalido!!\n";
@@ -513,15 +561,15 @@ int Menus::menu() {
             }
             else if (comando == "config") {        // Lê o ficheiro de texto e extrai informações
                 if (iss >> nomefich) {
-                    execFile(nomefich, &i);
-                    cout << endl;
+                    configFile(nomefich, &i);
                 }
+                else
+                    cout << "\nComando invalido!!\n";
             }
-            else if (comando == "debcash ") {      // Adicina a quantidade de €
+            else if (comando == "debcash") {      // Adicina a quantidade de €
                 if (iss >> valor) {
                     if (valor > 0) {
-                        cout << "\nComando indisponível\n" << endl;
-                        cout << endl;
+                        i.adicionaValor(valor);
                     }
                     else
                         cout << "\nComando invalido!!\n";
@@ -529,17 +577,30 @@ int Menus::menu() {
             }
             else if (comando == "debed") {        // Adiciona um edifício a custo zero
                 if (iss >> tipo && iss >> linha && iss >> coluna) {
-                    if (tipo == "minaf") {
-                        if(linha > 0) {
-                            if (coluna > 0) {
-                                cout << "\nComando indisponível\n" << endl;
-                                cout << endl;
-                            }
-                            else
-                                cout << "\nComando invalido!!\n";
-                        }
-                        else
-                            cout << "\nComando invalido!!\n";
+                    if (tipo == "minaf" && linha > 0 && coluna > 0) {
+                        i.adicionaEdificio("mnF", linha, coluna);
+                        cout << "Mina de Ferro adicionado" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "minac" && linha > 0 && coluna > 0) {
+                        i.adicionaEdificio("mnC", linha, coluna);
+                        cout << "Mina de Carvao Construida" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "central" && linha > 0 && coluna > 0) {
+                        i.adicionaEdificio("cEl", linha, coluna);
+                        cout << "Central Eletrica Construida" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "bat" && linha > 0 && coluna > 0) {
+                        i.adicionaEdificio("bat", linha, coluna);
+                        cout << "Bateria Construida" << endl;
+                        cout << endl;
+                    }
+                    else if (tipo == "fund" && linha > 0 && coluna > 0) {
+                        i.adicionaEdificio("fun", linha, coluna);
+                        cout << "Fundicao Construida" << endl;
+                        cout << endl;
                     }
                     else
                         cout << "\nComando invalido!!\n";
@@ -547,12 +608,9 @@ int Menus::menu() {
             }
             else if (comando == "debkill") {      // Remove o trabalhador
                 if (iss >> id) {
-                    if (id == "") {                 // TODO id
-                        cout << "\nComando indisponível\n" << endl;
-                        cout << endl;
-                    }
-                    else
-                        cout << "\nComando invalido!!\n";
+                                     // TODO: id
+                        i.removeTrabalhador(id);
+
                 }
             }
             else if (comando == "sair") {
@@ -563,7 +621,5 @@ int Menus::menu() {
             }
         }
     } while (comando != "sair");
-
-    return 0;
-};
+}
 

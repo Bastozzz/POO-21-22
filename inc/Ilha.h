@@ -15,13 +15,13 @@ class Ilha {
     int         tmpCount;
 
     //Recursos
-    int         riqueza;
-    int         ferro;
-    int         barraAco;
-    int         carvao;
-    int         madeira;
-    int         vigasMadeira;
-    int         eletricidade;
+    double      riqueza;
+    double      ferro;
+    double      barraAco;
+    double      carvao;
+    double      madeira;
+    double      vigasMadeira;
+    double      eletricidade;
 
 
 public:
@@ -42,42 +42,45 @@ public:
 
     void        moveTrabalhador(string id, int lin, int col);
 
+    void        comprarEdificio(string edifi, int valor);
+    void        comprarTrabalhador(string nome, int valor);
+
+    void        venderRecursos(string nome, int quant);
+    void        venderEdificio(string edifi, int l, int c);
+
+    void        adicionaValor(int valor);
+    void        adicionaEdificio(string edifi, int l, int c);
+    void        removeTrabalhador(string id);
+
     int         getDia();
     void        setDia(int d);
 
     int         getCount();
 
     //Recursos
-    int         getRiqueza();
+    double      getRiqueza();
     void        setRiqueza(double valor);
 
-    int         getFerro();
-    void        setFerro(double valor);
+    double      getFerro();
+    void        setFerro(double quant);
 
-    int         getBarraAco();
-    void        setBarraAco(double valor);
+    double      getBarraAco();
+    void        setBarraAco(double quant);
 
-    int         getCarvao();
-    void        setCarvao(double valor);
+    double      getCarvao();
+    void        setCarvao(double quant);
 
-    int         getMadeira();
-    void        setMadeira(double valor);
+    double      getMadeira();
+    void        setMadeira(double quant);
 
-    int         getVigasMadeira();
-    void        setVigasMadeira(double valor);
+    double      getVigasMadeira();
+    void        setVigasMadeira(double quant);
 
-    int         getEletricidade();
-    void        setEletricidade(double valor);
+    double      getEletricidade();
+    void        setEletricidade(double quant);
 
     void        retornaRecursos();
     string      getAsString() const;
-
-    /*
-     *
-     */
-
-    //Passar turnos
-    void nextTurn();
 
 };
 

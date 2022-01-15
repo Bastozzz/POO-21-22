@@ -1,8 +1,11 @@
 #include "../inc/Edificio.h"
-#include "../inc/Ilha.h"
 
 string Edificio::getNome() {
     return nome;
+}
+
+void Edificio::setNome(string n) {
+    nome = n;
 }
 
 string Edificio::getAsString() const {
@@ -33,9 +36,3 @@ int Edificio::desliga() {
  *
  *
  */
-
-void MinaFerro::produzir() {
-    ferro += 2 + (getNivel() - 1);
-    if(ferro > 100) ferro = 100;
-
-}

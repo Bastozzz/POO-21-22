@@ -36,13 +36,13 @@ void Ilha::criaIlha() {
 }
 
 void Ilha::mostraIlha(){
-    int n = 1, i, j;
-    for(i = 0; i < lZonas; i++)
+    int n = 1;
+    for(int i = 0; i < lZonas; i++)
         cout << "_____";
     cout << endl;
-    for(i = 0; i < lZonas; i++){
+    for(int i = 0; i < lZonas; i++){
         cout << "|";
-        for(j = 0; j < cZonas; j++){
+        for(int j = 0; j < cZonas; j++){
             retornaZona(n);
             cout << "|";
             n++;
@@ -51,7 +51,7 @@ void Ilha::mostraIlha(){
         n -= cZonas;
         cout << endl << "|";
 
-        for(j = 0; j < cZonas; j++){
+        for(int j = 0; j < cZonas; j++){
             retornaEdificio(n);
             cout << "|";
             n++;
@@ -60,7 +60,7 @@ void Ilha::mostraIlha(){
         n -= cZonas;
         cout << endl << "|";
 
-        for(j = 0; j < cZonas; j++){
+        for(int j = 0; j < cZonas; j++){
             retornaTrabalhadores(n);
             cout << "|";
             n++;
@@ -69,14 +69,14 @@ void Ilha::mostraIlha(){
         n -= cZonas;
         cout << endl << "|";
 
-        for(j = 0; j < cZonas; j++){
+        for(int j = 0; j < cZonas; j++){
             cout << Zonas[j + (cZonas * i)].getNTrab() << "   ";
             cout << "|";
             n++;
         }
 
         cout << endl;
-        for(i = 0; i < lZonas; i++)
+        for(int i = 0; i < lZonas; i++)
             cout << "_____";
         cout << endl;
     }
@@ -85,6 +85,27 @@ void Ilha::mostraIlha(){
 
     cout << "Dia numero " << getDia() << endl;
     retornaRecursos();
+}
+
+void Ilha::mostraZona(int lin, int col){
+    lin -= 1, col -= 1;
+    cout << endl << "---------------------------//-----------------------------" << endl;
+    cout << "Zona -> " << lin << " " << col << endl;
+    cout << "Tipo de zona -> " << Zonas[col + (cZonas * lin)].getTipo() << endl;
+    cout << "Edificio na zona -> ";
+    if(Zonas[col + (cZonas * lin)].getEdif() == "")
+        cout << "Nao tem edificio" << endl;
+    else{
+        cout << Zonas[col + (cZonas * lin)].getEdif() << " | Nivel: " << Zonas[col + (cZonas * lin)].getNivel() << endl;
+    }
+    cout << "Numero de trabalhadores -> " << Zonas[col + (cZonas * lin)].getNTrab() << endl;
+    if(Zonas[col + (cZonas * lin)].getNTrab() > 0){
+        cout << "Trabalhadores: ";
+        for(int i = 0; i < Zonas[col + (cZonas * lin)].getNTrab(); i++){
+            cout << endl << "    ID -> " << Zonas[col + (cZonas * lin)].getTrabId(i) << " | " << Zonas[col + (cZonas * lin)].getTrabName(i);
+        }
+    }
+    cout << endl << "---------------------------//-----------------------------" << endl;
 }
 
 void Ilha::retornaZona(int p) {

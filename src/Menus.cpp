@@ -431,7 +431,7 @@ int Menus::menu() {
             }
             else if (comando == "move") {           // Move trabalhador
                 if (iss >> id && iss >> linha && iss >> coluna) {
-                    if (id == t.getID() && linha > 0 && coluna > 0) {                 // TODO id
+                    if (linha > 0 && coluna > 0) {                 // TODO id
                         i.moveTrabalhador(id, linha, coluna);
                         cout << "Trabalhador movido" << endl;
                         cout << endl;
@@ -492,7 +492,11 @@ int Menus::menu() {
                 }
             }
             else if (comando == "list") {           // Ver dados da ilha
-                i.mostraIlha();
+                if (iss >> linha && iss >> coluna) {
+                    i.mostraZona(linha, coluna);
+                }
+                else
+                    i.mostraIlha();
             }
             else if (comando == "vende") {          // Vende edificios
                 if (iss >> tipo && iss >> linha && iss >> coluna) {

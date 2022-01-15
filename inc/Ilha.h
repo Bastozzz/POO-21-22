@@ -33,6 +33,7 @@ public:
     void        criaIlha();
     void        mostraIlha();
 
+    void        mostraZona(int lin, int col);
     void        retornaZona(int p);
     void        retornaEdificio(int p);
     void        retornaTrabalhadores(int p);

@@ -26,6 +26,7 @@ public:
 
     string      getTipo();
     string      getEdif();
+    int         getNivel();
 
     Trabalhador copyTrab(int pos);
     int         getNTrab();

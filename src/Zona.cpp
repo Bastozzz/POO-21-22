@@ -48,6 +48,10 @@ string Zona::getEdif() {
     return edif.getNome();
 }
 
+int Zona::getNivel(){
+    return edif.getNivel();
+}
+
 string Zona::getTrab() {
     int times = 1;
     if(empreg.size() == 0){

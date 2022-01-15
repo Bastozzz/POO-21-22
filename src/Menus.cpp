@@ -526,7 +526,7 @@ int Menus::menu() {
                 }
             }
             else if (comando == "next") {           // Termina a fase de recolha de comandos
-                cout << "\nComando indisponível\n" << endl;
+                i.proximoDia();
                 cout << endl;
             }
             else if (comando == "save") {           // Grava o estado do jogo em memória

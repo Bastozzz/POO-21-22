@@ -82,6 +82,11 @@ public:
     void        retornaRecursos();
     string      getAsString() const;
 
+    //Passar dos turnos(dias)
+    void        proximoDia();
+    void        amanhecer();
+    void        anoitecer();
+
 };
 
 #endif //UNTITLED_ILHA_H

@@ -83,6 +83,7 @@ void Ilha::mostraIlha(){
 
     cout << endl;
 
+    cout << "Dia numero " << getDia() << endl;
     retornaRecursos();
 }
 
@@ -546,6 +547,28 @@ void Ilha::retornaRecursos(){
     cout << " | Vigas de Madeira -> " << getVigasMadeira();
     cout << " | Eletricidade -> " << getEletricidade() << endl;
     cout << "------------------------//--------------------------" << endl << endl;
+}
+
+//Passar dos turnos(dias)
+void Ilha::proximoDia(){
+    //Recolha dos recursos
+    anoitecer();
+
+    dia++;
+
+    //Acontecem todos os efeitos das zonas
+    amanhecer();
+
+    mostraIlha();
+
+}
+
+void Ilha::anoitecer(){
+
+}
+
+void Ilha::amanhecer(){
+
 }
 
 string Ilha::getAsString() const {

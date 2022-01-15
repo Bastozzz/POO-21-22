@@ -36,6 +36,7 @@ class MinaFerro : public Edificio {
 
 public:
     MinaFerro(string nom = "mnF", int n = 1, int maxF = 100, int f = 0) : Edificio(nom, n), maxFerro(maxF), ferro(f)  {}
+    void produzirF();
 
 };
 
@@ -45,18 +46,16 @@ class MinaCarvao : public Edificio {
 
 public:
     MinaCarvao(string nom = "mnC", int n = 1, int maxC = 100, int c = 0) : Edificio(nom, n),  maxCarvao(maxC), carvao(c){}
-
+    void produzirC();
 };
 
 class CentralEletrica : public Edificio {
     int maxCarvao;
     int carvao;
 
-    bool bateriaAdj;
-    bool florestaAdj;
 public:
-    CentralEletrica(string nom = "cEl", int n = 1, int maxC = 100, int c = 0, int bAd = 0, int fAd = 0) : Edificio(nom, n), maxCarvao(maxC), carvao(c), bateriaAdj(bAd), florestaAdj(fAd){}
-
+    CentralEletrica(string nom = "cEl", int n = 1, int maxC = 100, int c = 0) : Edificio(nom, n), maxCarvao(maxC), carvao(c){}
+    void produzirRecursos();
 };
 
 class Bateria : public Edificio {
@@ -65,17 +64,15 @@ class Bateria : public Edificio {
 
 public:
     Bateria(string nom = "bat", int n = 1, int max = 100, int e = 0) : Edificio(nom, n), maxElet(max), eletricidade(e){}
+    void armazenar();
 
 };
 
 class Fundicao : public Edificio {
-    bool minaFerroAdj;
-    bool minaCarvaoAdj;
-    bool centralAdj;
-
+    int aco;
 public:
-    Fundicao(string nom = "fun", int n = 1, int mFA = 0, int mCA = 0, int cA = 0) : Edificio(nom, n), minaFerroAdj(mFA), minaCarvaoAdj(mCA), centralAdj(cA)  {}
-
+    Fundicao(string nom = "fun", int n = 1, int a = 0) : Edificio(nom, n), aco(a)  {}
+    void produzir();
 };
 
 #endif //UNTITLED_EDIFICIO_H

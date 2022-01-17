@@ -21,6 +21,10 @@ void Zona::construirEdificio(string nome){
         Fundicao f;
         edif = f;
     }
+    else{
+        Edificio e;
+        edif = e;
+    }
 }
 
 void Zona::colocarTrabalhador(string nome, Trabalhador t) {
@@ -44,7 +48,7 @@ string Zona::getTipo() {
     return tipo;
 }
 
-string Zona::getEdif() {
+string Zona::getEdif(){
     return edif.getNome();
 }
 
@@ -52,7 +56,11 @@ int Zona::getNivel(){
     return edif.getNivel();
 }
 
-string Zona::getTrab() {
+void Zona::produzir(){
+    edif.produzir();
+}
+
+void Zona::getTrab() {
     int times = 1;
     if(empreg.size() == 0){
         cout << "    ";

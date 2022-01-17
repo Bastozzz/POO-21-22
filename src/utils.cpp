@@ -7,6 +7,6 @@ int randTP(int n){
 }
 
 bool flag(){
-    cout << "Estou aqui";
+    cout << "Estou aqui\n";
     return 1;
 }

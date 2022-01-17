@@ -1,10 +1,10 @@
 #include "../inc/Edificio.h"
 
-string Edificio::getNome() {
+string Edificio::getNome() const{
     return nome;
 }
 
-void Edificio::setNome(string n) {
+void Edificio::setNome(string n){
     nome = n;
 }
 
@@ -38,25 +38,27 @@ int Edificio::desliga() {
  */
 
 
-void MinaFerro::produzirF(){
+
+void MinaFerro::produzir(){
+    flag();
     ferro += 2 + (nivel - 1);
     if(ferro > maxFerro + (nivel * 10) - 10)
         ferro = maxFerro + (nivel * 10) - 10;
 };
 
-void MinaCarvao::produzirC(){
+void MinaCarvao::produzir(){
     carvao += 2 + (nivel - 1);
     if(carvao > maxCarvao + (nivel * 10) - 10)
         carvao = maxCarvao + (nivel * 10) - 10;
 };
 
-void CentralEletrica::produzirRecursos(){
+void CentralEletrica::produzir(){
     carvao += 1;
     if(carvao > maxCarvao)
         carvao = maxCarvao;
 }
 
-void Bateria::armazenar() {
+void Bateria::produzir() {
     eletricidade += 1;
     if(eletricidade > maxElet + (nivel * 10) - 10)
         eletricidade = maxElet + (nivel * 10) - 10;

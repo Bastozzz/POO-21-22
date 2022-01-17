@@ -3,7 +3,7 @@
 
 #include "utils.h"
 
-class Edificio {
+class Edificio{
 protected:
     string  nome;
     int     nivel;
@@ -12,21 +12,23 @@ protected:
 public:
     Edificio(){};
     Edificio(string nom, int n) : nome(nom), nivel(n) {};
+    ~Edificio(){cout << "Edificio mandado abaixo";};
 
-    string getNome();
-    void setNome(string n);
+    string          getNome() const;
+    void            setNome(string n);
 
     //Por implementar na meta 2
-    void   setNivel(int n);
-    int    getNivel() const;
+    void            setNivel(int n);
+    int             getNivel() const;
 
-    string  getAsString() const;
+    string          getAsString() const;
 
-    int liga();
-    int desliga();
+    virtual void    produzir(){};
+
+    int             liga();
+    int             desliga();
 
 };
-
 
 //Subclasses
 
@@ -36,7 +38,7 @@ class MinaFerro : public Edificio {
 
 public:
     MinaFerro(string nom = "mnF", int n = 1, int maxF = 100, int f = 0) : Edificio(nom, n), maxFerro(maxF), ferro(f)  {}
-    void produzirF();
+    void produzir();
 
 };
 
@@ -46,7 +48,7 @@ class MinaCarvao : public Edificio {
 
 public:
     MinaCarvao(string nom = "mnC", int n = 1, int maxC = 100, int c = 0) : Edificio(nom, n),  maxCarvao(maxC), carvao(c){}
-    void produzirC();
+    void produzir();
 };
 
 class CentralEletrica : public Edificio {
@@ -55,7 +57,7 @@ class CentralEletrica : public Edificio {
 
 public:
     CentralEletrica(string nom = "cEl", int n = 1, int maxC = 100, int c = 0) : Edificio(nom, n), maxCarvao(maxC), carvao(c){}
-    void produzirRecursos();
+    void produzir();
 };
 
 class Bateria : public Edificio {
@@ -64,7 +66,7 @@ class Bateria : public Edificio {
 
 public:
     Bateria(string nom = "bat", int n = 1, int max = 100, int e = 0) : Edificio(nom, n), maxElet(max), eletricidade(e){}
-    void armazenar();
+    void produzir();
 
 };
 

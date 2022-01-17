@@ -28,9 +28,11 @@ public:
     string      getEdif();
     int         getNivel();
 
+    void        produzir();
+
     Trabalhador copyTrab(int pos);
     int         getNTrab();
-    string      getTrab();
+    void        getTrab();
     string      getTrabId(int pos);
     string      getTrabName(int pos);
 

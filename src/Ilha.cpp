@@ -27,9 +27,9 @@ void Ilha::criaIlha() {
 
     for(int i = 0; i < lZonas; i++) {
         for (int j = 0; j < cZonas; j++){
-
             //Aqui vai ser em vez de só com o vetor, vai ser criada a classe em si
             Zona z(verifica[i][j], i, j);
+            z.construirEdificio("");
             Zonas.push_back(z);
         }
     }
@@ -576,6 +576,7 @@ void Ilha::proximoDia(){
     anoitecer();
 
     dia++;
+    tmpCount = 1;
 
     //Acontecem todos os efeitos das zonas
     amanhecer();
@@ -585,7 +586,10 @@ void Ilha::proximoDia(){
 }
 
 void Ilha::anoitecer(){
-
+    int times = 0;
+    for (auto  i = Zonas.begin(); i != Zonas.end(); ++i){
+        i->produzir();
+    }
 }
 
 void Ilha::amanhecer(){
